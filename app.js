@@ -18,11 +18,9 @@ $(document).ready(function() {
 
   $('#submit').click(function(event) {
     event.preventDefault();
-    console.log('message');
-    var sentence = $('#sentence').val()
-    var addSentence = "<span class='userSentence'> " + sentence + "</span>"
-    //append it to the DOM 
-    $('div.story').append(addSentence);
+    var userSentence = $('#sentence').val()
+    addSentence(userSentence);
+    // Reset input field
     $('#sentence').val('');
   });
 
