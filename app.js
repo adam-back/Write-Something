@@ -46,6 +46,8 @@ $(document).ready(function() {
   var writeMagically = function() {
     var comment = comments[0].innerHTML;
     addSentence(comment);
+    // remove comment so it doesn't get reused
+    comments.splice(0,1);
   };
 
 });
