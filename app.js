@@ -5,16 +5,20 @@ $(document).ready(function() {
   // English, limit swearing
   var vettedComments;
 
-  $.ajax({
-    type: 'GET',
-    url: "https://gdata.youtube.com/feeds/api/videos/_OBlgSz8sSM/comments?orderby=published",
-    success: function(data) {
-      comments = $(data).find('content');
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
+  var getComments = function(videoCode) {
+    $.ajax({
+      type: 'GET',
+      url: "https://gdata.youtube.com/feeds/api/videos/" + videoCode + "/comments?orderby=published",
+      success: function(data) {
+        comments = $(data).find('content');
+      },
+      error: function(error) {
+        console.error(error);
+      }
+    });
+  };
+
+  getComments('_OBlgSz8sSM');
 
   $('#submit').click(function(event) {
     event.preventDefault();

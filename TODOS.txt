@@ -1,6 +1,8 @@
-Enter sentences updates DOM
-Google or instagram comments populate after you enter.
 Create grunt file
 Copy deploy.sh
 Deploy to azure
+Sort for English and poor language
+Save story as text file
+See which sentences are yours (change color or bold) 
+Make pretty
 Refactor with Backbone
