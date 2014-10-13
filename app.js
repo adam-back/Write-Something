@@ -4,6 +4,19 @@ $(document).ready(function() {
   var comments;
   // English, limit swearing
   var vettedComments;
+  //YouTube video codes for top-five most commented videos of all time.
+  var mostCommentedVideos = ['_OBlgSz8sSM', "dMH0bHeiRNg", 'kffacxfA7G4', "7AVHXe-ol-s", 'Hr0Wv5DJhuk'];
+  
+  var getRandomVideoCode = function() {
+    var randomVideoCode = "";
+    function getRandomArbitrary(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    };
+
+    var randomVideoCode = mostCommentedVideos[getRandomArbitrary(0, 5)];
+    return randomVideoCode;
+  };  
+  
 
   var getComments = function(videoCode) {
     $.ajax({
@@ -18,7 +31,7 @@ $(document).ready(function() {
     });
   };
 
-  getComments('_OBlgSz8sSM');
+  getComments(getRandomVideoCode());
 
   $('#submit').click(function(event) {
     event.preventDefault();
