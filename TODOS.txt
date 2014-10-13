@@ -1,5 +1,6 @@
-Create basic html shell
 Enter sentences updates DOM
 Google or instagram comments populate after you enter.
-Deploy
+Create grunt file
+Copy deploy.sh
+Deploy to azure
 Refactor with Backbone
