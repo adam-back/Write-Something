@@ -4,7 +4,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       dist: {
-        src: [],
+        src: [
+          'app.js'
+        ],
         dest: './public/production.js'
       },
       libs: {
@@ -91,7 +93,7 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
 
-  grunt.registerTask('build', ['jshint' 'concat', 'uglify']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
 
   grunt.registerTask('deploy', function(n) {
     if(grunt.option('prod')) {
