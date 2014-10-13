@@ -22,6 +22,7 @@ $(document).ready(function() {
     addSentence(userSentence);
     // Reset input field
     $('#sentence').val('');
+    writeMagically();
   });
 
   var addSentence = function(text) {
