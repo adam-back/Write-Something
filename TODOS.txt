@@ -1,0 +1,5 @@
+Create basic html shell
+Enter sentences updates DOM
+Google or instagram comments populate after you enter.
+Deploy
+Refactor with Backbone

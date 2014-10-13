@@ -1,0 +1,28 @@
+{
+  "name": "WriteSomething",
+  "version": "1.0.0",
+  "description": "Dependencies for the internet creative writing app.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adam-back/2014-09-solo.git"
+  },
+  "keywords": [
+    "write",
+    "creative",
+    "something",
+    "writesomething"
+  ],
+  "author": "Adam Back",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adam-back/2014-09-solo/issues"
+  },
+  "homepage": "https://github.com/adam-back/2014-09-solo",
+  "dependencies": {
+    "jquery": "^2.1.1"
+  }
+}
