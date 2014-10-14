@@ -11,7 +11,6 @@ $(document).ready(function() {
     $.ajax({
       url: textURL,
       success: function(data) {
-        console.log('data for new story', data);
         var sentences = data.split('.');
         sentences.forEach(function(value, index, array) {
           ghostSentences.push(value + ".");
@@ -44,9 +43,9 @@ $(document).ready(function() {
   };
 
   $("input[type='radio']").change(function() {
+    //empty ghost sentences for new stuff.
+    ghostSentences.splice(0, ghostSentences.length -1);
     getStory(this.value);
-    console.log('value', this.value);
-    console.log('ghostSentences', ghostSentences);
   });
 
   $('#submit').click(function(event) {
