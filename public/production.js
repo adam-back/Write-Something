@@ -1,36 +1,21 @@
-var comments;
-  // English, limit swearing
-var vettedComments;
-//YouTube video codes for top-five most commented videos of all time.
-var mostCommentedVideos = ['_OBlgSz8sSM', "dMH0bHeiRNg", 'kffacxfA7G4', "7AVHXe-ol-s", 'Hr0Wv5DJhuk'];
-
-var getRandomVideoCode = function() {
-  var randomVideoCode = "";
-  function getRandomArbitrary(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-  }
-
-  randomVideoCode = mostCommentedVideos[getRandomArbitrary(0, 5)];
-  return randomVideoCode;
-};  
-
-var getComments = function(videoCode) {
-  $.ajax({
-    type: 'GET',
-    url: "https://gdata.youtube.com/feeds/api/videos/" + videoCode + "/comments?orderby=published",
-    success: function(data) {
-      comments = $(data).find('content');
-    },
-    error: function(error) {
-      console.error(error);
-    }
-  });
-};
-
-getComments(getRandomVideoCode());
 $(document).ready(function() {
   //on page load, store a whole bunch of comments from a popular video on YouTube
   // page for commented videos http://vidstatsx.com/most-commented-videos-all-time
+  
+  //loads Siddhartha to begin with as default.
+  
+  var ghostSentences = [];
+
+  var getStory = function(storyName) {
+    $.get('./Text/' + storyName + '.txt', function(data) {
+      var sentences = data.split('.');
+      sentences.forEach(function(value, index, array) {
+        ghostSentences.push(value + ".");
+      });
+    });
+  };
+
+  getStory('Siddhartha');
 
   var addSentence = function(text) {
     // look for ending punctuation
@@ -50,6 +35,10 @@ $(document).ready(function() {
     $('div.story').append(sentence);
   };
 
+  $("input[type='radio']").change(function() {
+    getStory(this.value);
+  });
+
   $('#submit').click(function(event) {
     event.preventDefault();
     var userSentence = $('#sentence').val()
@@ -59,11 +48,39 @@ $(document).ready(function() {
     writeMagically();
   });
 
+  var getRandomSentence = function() {
+    var randomSentence = "";
+    
+    function getRandomArbitrary(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    randomSentence = ghostSentences[getRandomArbitrary(20, 700)];
+    return randomSentence;
+  };  
+
+  var undesiredWords = function(sentence) {
+    if(sentence.search("Chapter") >= 0 ||
+      sentence.search("Siddhartha") >= 0 ||
+      sentence.search("Katniss") >= 0 ||
+      sentence.search("Govinda") >= 0 ||
+      sentence.search("Peter") >= 0) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  
   var writeMagically = function() {
-    comment = comments[0].innerHTML;
-    addSentence(comment);
-    // remove comment so it doesn't get reused
-    comments.splice(0,1);
+    //randomly pick a ghost sentence
+    var magicSentence = getRandomSentence();
+    // make sure it does not include the words
+    if(undesiredWords(magicSentence)) {
+      //get a new sentence
+      writeMagically();
+    } else {
+      addSentence(magicSentence);
+    }
   };
 
 });
