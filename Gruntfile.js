@@ -60,7 +60,7 @@ module.exports = function(grunt) {
         ]
       },
       css: {
-        files: '*.css',
+        files: 'styles.css',
         tasks: ['cssmin']
       }
     },
