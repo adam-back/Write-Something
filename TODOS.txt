@@ -1,4 +1,3 @@
-Create grunt file
 Deploy to azure
 Sort for English and poor language
 Save story as text file
