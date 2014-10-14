@@ -1,5 +1,5 @@
-span #credit {
-  bottom: 0px;
+#credit {
+  bottom: 15px;
   display: block;
   position: absolute;
 }
