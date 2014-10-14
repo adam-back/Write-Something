@@ -11,9 +11,9 @@ $(document).ready(function() {
     var randomVideoCode = "";
     function getRandomArbitrary(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
-    };
+    }
 
-    var randomVideoCode = mostCommentedVideos[getRandomArbitrary(0, 5)];
+    randomVideoCode = mostCommentedVideos[getRandomArbitrary(0, 5)];
     return randomVideoCode;
   };  
   
@@ -54,7 +54,7 @@ $(document).ready(function() {
       default: 
         // if no ending punctuation, add some
         text = text + ".";
-    };
+    }
 
     var sentence = "<span class='userSentence'> " + text + "</span>"
     $('div.story').append(sentence);

@@ -20,11 +20,11 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         src: './public/production.js',
-        dest: './public/production.min.js'
+        dest: './public/js/production.min.js'
       },
       libs: {
         src: './public/libraries.js',
-        dest: './public/libraries.min.js'
+        dest: './public/js/libraries.min.js'
       }
     },
 
