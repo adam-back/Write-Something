@@ -7,11 +7,19 @@ $(document).ready(function() {
   var ghostSentences = [];
 
   var getStory = function(storyName) {
-    $.get('./Text/' + storyName + '.txt', function(data) {
-      var sentences = data.split('.');
-      sentences.forEach(function(value, index, array) {
-        ghostSentences.push(value + ".");
-      });
+    var textURL = './Text/' + storyName + '.txt';
+    $.ajax({
+      url: textURL,
+      success: function(data) {
+        console.log('data for new story', data);
+        var sentences = data.split('.');
+        sentences.forEach(function(value, index, array) {
+          ghostSentences.push(value + ".");
+        });
+      },
+      error: function(error) {
+        console.error('There was an error retrieving the story: ' + error);
+      }
     });
   };
 
@@ -37,6 +45,8 @@ $(document).ready(function() {
 
   $("input[type='radio']").change(function() {
     getStory(this.value);
+    console.log('value', this.value);
+    console.log('ghostSentences', ghostSentences);
   });
 
   $('#submit').click(function(event) {
