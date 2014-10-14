@@ -42,6 +42,10 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      all: {
+        src: ["*.css"],
+        dest: "./public/js/styling.min.css"
+      }
     },
 
     watch: {
@@ -55,7 +59,7 @@ module.exports = function(grunt) {
         ]
       },
       css: {
-        files: 'public/*.css',
+        files: '*.css',
         tasks: ['cssmin']
       }
     },
@@ -93,7 +97,7 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
 
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('build', ['jshint', 'concat', 'cssmin', 'uglify']);
 
   grunt.registerTask('deploy', function(n) {
     if(grunt.option('prod')) {

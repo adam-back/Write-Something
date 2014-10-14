@@ -1,4 +1,3 @@
-Deploy to azure
 Sort for English and poor language
 Save story as text file
 See which sentences are yours (change color or bold) 
