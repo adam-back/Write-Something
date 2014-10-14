@@ -14,6 +14,6 @@ $(document).ready(function() {
   getStory('Siddhartha');
 
   $("input[type='radio']").change(function() {
-    console.log('changed radio button');
+    getStory(this.value);
   });
 });
