@@ -59,7 +59,6 @@ $(document).ready(function() {
     writeMagically();
   });
 
-
   var writeMagically = function() {
     comment = comments[0].innerHTML;
     addSentence(comment);
