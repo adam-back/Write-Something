@@ -5,9 +5,9 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
-          // 'comments.js',
           "stories.js",
-          'app.js'
+          'app.js',
+          "sentenceFiltering.js"
         ],
         dest: './public/production.js'
       },

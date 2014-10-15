@@ -45,36 +45,17 @@ $(document).ready(function() {
     $('div.story').append(sentence);
   };
 
-
   var getRandomSentence = function() {
-    var randomSentence = "";
-    
     function getRandomArbitrary(min, max) {
       return Math.floor(Math.random() * (max - min) + min);
     }
-
-    randomSentence = ghostSentences[getRandomArbitrary(20, 700)];
+    var randomSentence = "";
+    var sentenceIndex = getRandomArbitrary(0, ghostSentences.length -1)
+    console.log(sentenceIndex);
+    randomSentence = ghostSentences[sentenceIndex];
+    console.log('string?', typeof randomSentence);
     return randomSentence;
   };  
-
-  var undesiredWords = function(sentence) {
-    if(sentence.search("Chapter") >= 0 ||
-      sentence.search("Siddhartha") >= 0 ||
-      sentence.search("Katniss") >= 0 ||
-      sentence.search("Govinda") >= 0 ||
-      sentence.search("Kamala") >= 0 ||
-      sentence.search('Gotama') >= 0 ||
-      sentence.search("Peter") >= 0 ||
-      sentence.search("Wendy") >= 0 ||
-      sentence.search(".s") >= 0 ||
-      sentence.search(".r") >= 0 ||
-      sentence.search(".rs") >= 0 ||
-      sentence.search(/\?/) >= 0 ){
-      return true;
-    } else {
-      return false;
-    }
-  };
   
   var writeMagically = function() {
     //randomly pick a ghost sentence
@@ -108,3 +89,24 @@ $(document).ready(function() {
     $('div.story').children().remove();
   });
 });
+
+var undesiredWords = function(sentence) {
+  if(sentence.search("Chapter") >= 0 ||
+    sentence.search("Siddhartha") >= 0 ||
+    sentence.search("Katniss") >= 0 ||
+    sentence.search("Govinda") >= 0 ||
+    sentence.search("Kamala") >= 0 ||
+    sentence.search('Gotama') >= 0 ||
+    sentence.search("Peter") >= 0 ||
+    sentence.search("Wendy") >= 0 ||
+    sentence.search("Mr.") >= 0 ||
+    sentence.search("Ms.") >= 0 ||
+    sentence.search("Mrs.") >= 0 ||
+    sentence.search("I") >= 0 ||
+    sentence.length < 10 ||
+    sentence.search(/\?/) >= 0 ){
+    return true;
+  } else {
+    return false;
+  }
+};
