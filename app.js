@@ -40,9 +40,13 @@ $(document).ready(function() {
       sentence.search("Siddhartha") >= 0 ||
       sentence.search("Katniss") >= 0 ||
       sentence.search("Govinda") >= 0 ||
+      sentence.search("Kamala") >= 0 ||
       sentence.search('Gotama') >= 0 ||
       sentence.search("Peter") >= 0 ||
       sentence.search("Wendy") >= 0 ||
+      sentence.search(".s") >= 0 ||
+      sentence.search(".r") >= 0 ||
+      sentence.search(".rs") >= 0 ||
       sentence.search(/\?/) >= 0 ){
       return true;
     } else {
