@@ -1,3 +1,25 @@
+var ghostSentences = [];
+
+var getStory = function(storyName) {
+  var textURL = './Text/' + storyName + '.txt';
+  $.ajax({
+    url: textURL,
+    success: function(data) {
+      var sentences = data.split('.');
+      sentences.forEach(function(value, index, array) {
+        ghostSentences.push(value + ".");
+      });
+    },
+    error: function(error) {
+      console.error('There was an error retrieving the story: ' + error);
+    }
+  });
+};
+
+
+
+
+
 $(document).ready(function() {
   //on page load, store a whole bunch of comments from a popular video on YouTube
   // page for commented videos http://vidstatsx.com/most-commented-videos-all-time

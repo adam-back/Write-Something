@@ -1,4 +1,4 @@
-Refactor for famous authors
+
 Save story as text file
 See which sentences are yours (change color or bold) 
 Make pretty

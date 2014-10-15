@@ -6,6 +6,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           // 'comments.js',
+          "stories.js",
           'app.js'
         ],
         dest: './public/production.js'
@@ -26,7 +27,8 @@ module.exports = function(grunt) {
       libs: {
         src: './public/libraries.js',
         dest: './public/js/libraries.min.js'
-      }
+      },
+
     },
 
     jshint: {
