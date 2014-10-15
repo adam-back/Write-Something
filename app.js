@@ -3,25 +3,6 @@ $(document).ready(function() {
   // page for commented videos http://vidstatsx.com/most-commented-videos-all-time
   
   //loads Siddhartha to begin with as default.
-  
-  var ghostSentences = [];
-
-  var getStory = function(storyName) {
-    var textURL = './Text/' + storyName + '.txt';
-    $.ajax({
-      url: textURL,
-      success: function(data) {
-        var sentences = data.split('.');
-        sentences.forEach(function(value, index, array) {
-          ghostSentences.push(value + ".");
-        });
-      },
-      error: function(error) {
-        console.error('There was an error retrieving the story: ' + error);
-      }
-    });
-  };
-
   getStory('Siddhartha');
 
   var addSentence = function(text) {
@@ -42,20 +23,6 @@ $(document).ready(function() {
     $('div.story').append(sentence);
   };
 
-  $("input[type='radio']").change(function() {
-    //empty ghost sentences for new stuff.
-    ghostSentences.splice(0, ghostSentences.length -1);
-    getStory(this.value);
-  });
-
-  $('#submit').click(function(event) {
-    event.preventDefault();
-    var userSentence = $('#sentence').val()
-    addSentence(userSentence);
-    // Reset input field
-    $('#sentence').val('');
-    writeMagically();
-  });
 
   var getRandomSentence = function() {
     var randomSentence = "";
@@ -73,7 +40,11 @@ $(document).ready(function() {
       sentence.search("Siddhartha") >= 0 ||
       sentence.search("Katniss") >= 0 ||
       sentence.search("Govinda") >= 0 ||
-      sentence.search("Peter") >= 0) {
+      sentence.search('Gotama') >= 0 ||
+      sentence.search("Peter") >= 0 ||
+      sentence.search("Wendy") >= 0 ||
+      sentence.search("/\'\"") >= 0 ||
+      sentence.search(/\?/) >= 0 ){
       return true;
     } else {
       return false;
@@ -92,4 +63,18 @@ $(document).ready(function() {
     }
   };
 
+  $("input[type='radio']").change(function() {
+    //empty ghost sentences for new stuff.
+    ghostSentences.splice(0, ghostSentences.length -1);
+    getStory(this.value);
+  });
+
+  $('#submit').click(function(event) {
+    event.preventDefault();
+    var userSentence = $('#sentence').val()
+    addSentence(userSentence);
+    // Reset input field
+    $('#sentence').val('');
+    writeMagically();
+  });
 });
