@@ -22,3 +22,9 @@
   display: inline;
   height: 20px;
 }
+
+#clear {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 50px;
+}

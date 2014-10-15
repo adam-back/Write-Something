@@ -1,7 +1,7 @@
 var ghostSentences = [];
 
 var getStory = function(storyName) {
-  var textURL = './Text/' + storyName + '.txt';
+  var textURL = '../Text/' + storyName + '.txt';
   $.ajax({
     url: textURL,
     success: function(data) {
@@ -65,7 +65,6 @@ $(document).ready(function() {
       sentence.search('Gotama') >= 0 ||
       sentence.search("Peter") >= 0 ||
       sentence.search("Wendy") >= 0 ||
-      sentence.search("/\'\"") >= 0 ||
       sentence.search(/\?/) >= 0 ){
       return true;
     } else {
@@ -98,5 +97,10 @@ $(document).ready(function() {
     // Reset input field
     $('#sentence').val('');
     writeMagically();
+  });
+
+  $('#clear').click(function(event) {
+    event.preventDefault();
+    $('div.story').children().remove();
   });
 });
