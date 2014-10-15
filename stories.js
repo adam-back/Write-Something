@@ -1,7 +1,7 @@
 var ghostSentences = [];
 
 var getStory = function(storyName) {
-  var textURL = './Text/' + storyName + '.txt';
+  var textURL = '../Text/' + storyName + '.txt';
   $.ajax({
     url: textURL,
     success: function(data) {
