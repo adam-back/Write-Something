@@ -1,5 +1,7 @@
 # Write Together #
- 
+## Project ##
+  > Many of the projects at Hack Reactor were made in pairs or groups. This was my first solo project and was accomplished with two days of work. It is an MVP.
+  
 ## The Game ##
   > Write a story together with the help of the internet. For every sentence you write, the internet will automagically write the next. While we can't guarantee Shakespearean stardom, we can promise a fun experience!
 
